@@ -1,0 +1,20 @@
+<app-debt-create (debtCreated)="updateDebtList()"></app-debt-create> <!-- Capturando o evento -->
+<app-debt-list></app-debt-list>
+
+<div class="dashboard">
+  <h2>Resumo Financeiro</h2>
+  <div class="summary">
+    <div class="card">
+      <h3>Total de Dívidas</h3>
+      <p>{{ totalDebts }}</p>
+    </div>
+    <div class="card">
+      <h3>Valor Total Pendente</h3>
+      <p>{{ pendingDebts | currency }}</p>
+    </div>
+    <div class="card">
+      <h3>Dívidas Pagas</h3>
+      <p>{{ paidDebts }}</p>
+    </div>
+  </div>
+</div>
