@@ -1,0 +1,25 @@
+<div class="debt-list">
+  <h2>Dívidas</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Título</th>
+      <th>Valor</th>
+      <th>Data de Vencimento</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let debt of debts">
+      <td>{{ debt.title }}</td>
+      <td>{{ debt.amount | currency }}</td>
+      <td>{{ debt.dueDate | date }}</td>
+      <td>{{ debt.status }}</td>
+      <td>
+        <button (click)="deleteDebt(debt.id)">Excluir</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
