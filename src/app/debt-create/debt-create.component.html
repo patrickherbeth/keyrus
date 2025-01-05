@@ -1,30 +1,35 @@
 <div class="debt-create">
-  <h2>Criar Dívida</h2>
-  <form (ngSubmit)="createDebt()">
-    <div>
-      <label for="title">Título</label>
-      <input type="text" id="title" [(ngModel)]="debt.title" name="title" required />
-    </div>
-    <div>
-      <label for="amount">Valor</label>
-      <input type="number" id="amount" [(ngModel)]="debt.amount" name="amount" required />
-    </div>
-    <div>
-      <label for="dueDate">Data de Vencimento</label>
-      <input type="date" id="dueDate" [(ngModel)]="debt.dueDate" name="dueDate" required />
-    </div>
-    <div>
-      <label for="status">Status</label>
-      <select id="status" [(ngModel)]="debt.status" name="status" required>
-        <option value="Pendente">Pendente</option>
-        <option value="Pago">Pago</option>
-        <option value="Atrasado">Atrasado</option>
-      </select>
-    </div>
-    <div>
-      <label for="observations">Observações</label>
-      <textarea id="observations" [(ngModel)]="debt.observations" name="observations"></textarea>
-    </div>
-    <button type="submit">Criar Dívida</button>
-  </form>
+    <h2>Criar Dívida</h2>
+    <form (ngSubmit)="createDebt()">
+        <mat-form-field appearance="fill">
+            <label>Título</label>
+            <input matInput type="text" [(ngModel)]="debt.title" name="title" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <label>Valor</label>
+            <input matInput type="number" [(ngModel)]="debt.amount" name="amount" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <label>Data de Vencimento</label>
+            <input matInput type="date" [(ngModel)]="debt.dueDate" name="dueDate" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <label>Status</label>
+            <select matNativeControl [(ngModel)]="debt.status" name="status" required>
+                <option value="Pendente">Pendente</option>
+                <option value="Pago">Pago</option>
+                <option value="Atrasado">Atrasado</option>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <label>Observações</label>
+            <textarea matInput [(ngModel)]="debt.observations" name="observations"></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Criar Dívida</button>
+    </form>
 </div>

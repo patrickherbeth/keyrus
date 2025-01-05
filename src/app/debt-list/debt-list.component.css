@@ -1,5 +1,16 @@
 .debt-list {
+  font-family: 'Arial', sans-serif;
   padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+.debt-list h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
 }
 
 table {
@@ -7,19 +18,42 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
-  padding: 12px;
+thead th {
+  background-color: #16a085;
+  color: white;
+  padding: 10px;
   text-align: left;
 }
 
+tbody td {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 button {
-  background-color: red;
+  background-color: #e74c3c;
   color: white;
+  font-weight: bold;
+  padding: 5px 10px;
   border: none;
-  padding: 8px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: darkred;
+  background-color: #c0392b;
+}
+
+.delete-button {
+  color: white; /* Torna o texto branco */
+  background-color: red; /* Fundo vermelho como exemplo */
+}
+
+.delete-button:hover {
+  background-color: darkred; /* Altere a cor ao passar o mouse */
 }

@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app/app-routing.module';  // Importando AppR
 import { importProvidersFrom } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(AppRoutingModule, FormsModule),  // Importando AppRoutingModule
-    provideHttpClient(withInterceptorsFromDi()) // Adiciona suporte ao HttpClient e interceptores
+    provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync() // Adiciona suporte ao HttpClient e interceptores
   ]
 });
 

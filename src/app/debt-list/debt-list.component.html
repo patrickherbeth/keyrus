@@ -1,25 +1,37 @@
-<div class="debt-list">
-  <h2>Dívidas</h2>
-  <table>
-    <thead>
-    <tr>
-      <th>Título</th>
-      <th>Valor</th>
-      <th>Data de Vencimento</th>
-      <th>Status</th>
-      <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let debt of debts">
-      <td>{{ debt.title }}</td>
-      <td>{{ debt.amount | currency }}</td>
-      <td>{{ debt.dueDate | date }}</td>
-      <td>{{ debt.status }}</td>
-      <td>
-        <button (click)="deleteDebt(debt.id)">Excluir</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Definição das colunas -->
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Título </th>
+        <td mat-cell *matCellDef="let element"> {{ element.title }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Valor </th>
+        <td mat-cell *matCellDef="let element"> {{ element.amount | currency }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef> Vencimento </th>
+        <td mat-cell *matCellDef="let element"> {{ element.dueDate | date }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{ element.status }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-button color="warn" (click)="deleteDebt(element.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <!-- Header Row -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- Data Row -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
